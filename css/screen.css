@@ -1,54 +1,164 @@
+/* ===================== */
+/* VARIABLES GLOBALES   */
+/* ===================== */
+:root {
+  --main-color: #0066cc;         /* Couleur principale du thème */
+  --accent-color: #003366;       /* Couleur secondaire (menu) */
+  --bg-color: #f8f9fa;           /* Couleur de fond globale */
+  --text-color: #333;            /* Couleur du texte principal */
+  --card-bg: #ffffff;            /* Fond des blocs (main, cartes) */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Ombres légères */
+  --font-main: 'Segoe UI', Arial, sans-serif; /* Police principale */
+}
 
-body {
-  font-family: Arial, sans-serif;
+/* ========================== */
+/* STYLE DE BASE (mobile first) */
+/* ========================== */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f5f5f5;
-  color: #333;
+  box-sizing: border-box; /* Meilleure gestion des tailles */
 }
 
+body {
+  font-family: var(--font-main);
+  font-size: 16px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 15px; /* Marge intérieure globale */
+}
+
+/* =================== */
+/* EN-TÊTE ET TITRE   */
+/* =================== */
 header {
-  background-color: #008080;
+  background-color: var(--main-color);
   color: white;
-  padding: 1em;
+  padding: 20px 10px;
   text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px var(--shadow-color);
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
+header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 15px;
+/* ==================== */
+/* NAVIGATION (MENU)   */
+/* ==================== */
+nav {
+  display: flex;
+  flex-direction: column;       /* Menu vertical par défaut */
+  gap: 10px;
+  align-items: center;
 }
 
-nav ul li a {
+nav a {
+  background-color: var(--accent-color);
+  color: white;
   text-decoration: none;
-  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s; /* Effet fluide au survol */
 }
 
+nav a:hover {
+  background-color: #002244;
+}
 
+/* ================== */
+/* CONTENU PRINCIPAL  */
+/* ================== */
 main {
-  padding: 2em;
+  background-color: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 8px var(--shadow-color);
+  max-width: 1000px;
+  margin: 20px auto; /* Centrage horizontal */
 }
 
-footer {
-  background-color: #008080;
-  color: white;
+/* =================== */
+/* TEXTES ET SECTIONS  */
+/* =================== */
+h2 {
+  color: var(--main-color);
+  font-size: 20px;
+  margin: 20px 0 10px;
+}
+
+p, ul, figcaption {
+  margin-bottom: 15px;
+}
+
+ul {
+  margin-left: 20px;
+}
+
+/* =============== */
+/* IMAGES & FIGURES */
+/* =============== */
+figure {
+  margin: 20px 0;
   text-align: center;
-  padding: 1em;
-  position: relative;
-  bottom: 0;
-  width: 100%;
 }
 
-img {
+figure img {
   max-width: 100%;
   height: auto;
-  margin: 1em auto;
-  position: relative;
-  display: inline;
+  border-radius: 8px; /* Coins arrondis pour les images */
+}
+
+figcaption {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* ============== */
+/* PIED DE PAGE   */
+/* ============== */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+/* ============================ */
+/* MEDIA QUERIES : RESPONSIVE  */
+/* ============================ */
+
+/* Tablettes : 768px et plus */
+@media screen and (min-width: 768px) {
+  nav {
+    flex-direction: row;         /* Menu horizontal */
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 0 8px; /* Espacement horizontal entre les liens */
+  }
+
+  main {
+    padding: 30px;
+  }
+}
+
+/* Écrans larges : 1024px et plus */
+@media screen and (min-width: 1024px) {
+  header h1 {
+    font-size: 32px; /* Titre plus grand */
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  body {
+    font-size: 18px;
+  }
 }
